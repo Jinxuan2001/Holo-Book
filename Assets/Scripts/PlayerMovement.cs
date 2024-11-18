@@ -21,10 +21,10 @@ public class PlayerMovement : MonoBehaviour
     {
         // Get input from WASD or arrow keys
         float moveX = Input.GetAxis("Horizontal"); // A/D or Left/Right arrow keys for X axis
-        float moveZ = Input.GetAxis("Vertical"); // W/S or Up/Down arrow keys for Z axis
+        float moveY = Input.GetAxis("Vertical"); // W/S or Up/Down arrow keys for Y axis
 
-        // Set the movement direction based on input
-        moveDirection = new Vector3(moveX, 0f, moveZ).normalized;
+        // Set the movement direction with Y-axis movement for W/S keys
+        moveDirection = new Vector3(moveX, moveY, 0f).normalized;
 
         // Move the player
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
